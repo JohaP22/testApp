@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'testApp';
+  public videojuegos_show:boolean;
+  constructor(){
+    this.videojuegos_show = true;
+  }
+  showVideo(){
+    this.videojuegos_show = true;
+  }
+  hideVideo(){
+    this.videojuegos_show = false;
+
+  }
 }

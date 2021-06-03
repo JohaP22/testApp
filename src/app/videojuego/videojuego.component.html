@@ -1,0 +1,23 @@
+<h2>{{title}}</h2>
+<ul>
+    <li *ngFor="let game of lista_videos">{{game.name}} - {{game.price}} $ - {{game.indice}}
+        <span *ngIf="game.price <= 2" [style.background]="game.price <= 2 ?'green':'transparent'"
+        [style.color]="game.price <= 2 ?'white':'black' ">¡OFERTA!</span>
+        <button (click)="removeVideo(game.indice)">Borrar</button>
+    </li>
+</ul>
+<button (click)="changeTitle()">¿Quieres cambiar el titulo? Click aqui</button>
+<h3>Añadir videojuego</h3>
+<input type="text" [(ngModel)]="aditional_game">
+<button (click)="addVideo()">Añadir</button>
+<hr/>
+<h3>Genero ingresado</h3>
+<input type="text" [(ngModel)]="gender_game">
+<hr/>
+<span>Genero con mayor venta</span>
+<ul [ngSwitch]="gender_game">
+    <li *ngSwitchCase="'Cars'">Cars</li>
+    <li *ngSwitchCase="'Architecture'">Architecture</li>
+    <li *ngSwitchCase="'Competitive'">Competitive</li>
+    <li *ngSwitchCase="'Labs'">Labs</li>
+</ul>
