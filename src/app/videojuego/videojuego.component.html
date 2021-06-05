@@ -1,6 +1,6 @@
 <h2>{{title}}</h2>
 <ul>
-    <li *ngFor="let game of lista_videos">{{game.name}} - {{game.price}} $ - {{game.indice}}
+    <li [ngClass]="{bold: game.price > 2, underline:game.price<=2}" [class.altoPrecio]="game.price > 4" *ngFor="let game of lista_videos">{{game.name}} - {{game.price}} $ - {{game.indice}}
         <span *ngIf="game.price <= 2" [style.background]="game.price <= 2 ?'green':'transparent'"
         [style.color]="game.price <= 2 ?'white':'black' ">¡OFERTA!</span>
         <button (click)="removeVideo(game.indice)">Borrar</button>
