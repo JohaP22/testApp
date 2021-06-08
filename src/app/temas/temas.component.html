@@ -1,1 +1,10 @@
-<p>temas works!</p>
+<h1>Bienvenido al componente de Temas</h1>
+<button (click)="redirect()">Ir a Colores</button>
+<br/>
+<span *ngIf="title; then siTitle else noTitle"></span>
+<ng-template #siTitle>
+    El tema seleccionado es {{title}}
+</ng-template>
+<ng-template #noTitle>
+    Recuerda seleccionar un tema ideal para ti
+</ng-template>

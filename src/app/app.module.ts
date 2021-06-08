@@ -1,25 +1,38 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
+import {routing, appRoutingProviders} from './app routing';
 import { AppComponent } from './app.component';
 import { VideojuegoComponent } from './videojuego/videojuego.component';
 import { ColorComponent } from './colores/colores.component';
 import { TemasComponent } from './temas/temas.component';
+import { HomeComponent } from './home/home.component';
+import { VideoJuegoService } from './services/videojuego.service';
+import { ExternComponent } from './extern/extern.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VideojuegoComponent,
     ColorComponent,
-    TemasComponent
+    TemasComponent,
+    HomeComponent,
+    ExternComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    routing
   ],
-  providers: [],
+  providers: [
+    appRoutingProviders,
+    VideoJuegoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

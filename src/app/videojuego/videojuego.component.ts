@@ -1,7 +1,8 @@
 import { Component, OnInit, DoCheck, OnDestroy } from '@angular/core';
 import { from } from 'rxjs';
 import { Configuration } from '../models/configuration';
-import {Videogame} from '../models/videogame'
+import {Videogame} from '../models/videogame';
+import {VideoJuegoService} from '../services/videojuego.service'
 @Component({
     selector:'videojuego',
     templateUrl: './videojuego.component.html'
@@ -11,20 +12,17 @@ export class VideojuegoComponent implements OnInit, DoCheck, OnDestroy {
     public lista_videos: Array<Videogame>;
     public gender_game:string;
     public aditional_game:string;
-    constructor(){
+    constructor(
+        private _videoService: VideoJuegoService
+    ){
         this.title = Configuration.title; 
         this.gender_game = 'Cars';       
         this.aditional_game = '';       
-        this.lista_videos = [
-            new Videogame(0,'GTA',5,'Cars'),
-            new Videogame(1,'MineCraft',2,'Architecture'),
-            new Videogame(2,'Mario Bross',4,'Competitive'),
-            new Videogame(3,'Test',0,'Labs'),
-        ];
-        console.log(this.lista_videos);
+        this.lista_videos = [];       
         console.log('Inicia el constructor')
     }
     ngOnInit(){
+        this.lista_videos = this._videoService.getVideogames();
         console.log('cargo el componente, gracias a Dios');
     }
     ngDoCheck(){

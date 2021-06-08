@@ -1,0 +1,10 @@
+.active{
+    background-color: rgba(0, 0, 255, 0.385);
+    color: #fff !important;
+}
+nav {
+    border-bottom: #104573 3px solid;
+}
+nav a:hover{
+    background-color: rgba(0, 0, 255, 0.063);
+}
