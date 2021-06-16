@@ -1,1 +1,9 @@
-<p>extern works!</p>
+<h2> Indica un numero de Usuario</h2>
+<input type="text" [(ngModel)]="userId" (keyup.enter)="findUser()">
+<div *ngIf="!user"><strong><i>Cargando</i></strong></div>
+<div *ngIf="user">
+    <h4> El Usuario indicado es:</h4>
+    <strong>{{user.first_name}} {{user.last_name}}</strong>
+    <br>
+    <img src="{{user.avatar}}"/>
+</div>

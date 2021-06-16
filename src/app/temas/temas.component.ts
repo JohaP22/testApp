@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'temas',
@@ -7,19 +7,18 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
   styleUrls: ['./temas.component.css']
 })
 export class TemasComponent implements OnInit {
-  public title:string="";
+  public title: string = "";
   constructor(
     private _route: ActivatedRoute,
-    private _router: Router    
-  ) { 
+    private _router: Router
+  ) {
   }
-
   ngOnInit() {
-    this._route.params.subscribe((params:Params)=>{
-      this.title = params.titulo;    
+    this._route.params.subscribe((params: Params) => {
+      this.title = params.titulo;
     })
   }
-  redirect(){
+  redirect() {
     this._router.navigate(['/color'])
   }
 }
