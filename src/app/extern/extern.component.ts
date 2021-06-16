@@ -9,14 +9,21 @@ import { PeticionesService } from '../services/peticiones.service'
 export class ExternComponent implements OnInit {
   public user: any;
   public userId:any;
+  public fecha:any;
+  public new_user: any;
   constructor(
     private _peticionServ: PeticionesService
   ) {
     this.userId =1;
+    this.new_user={
+      "name": "",
+      "job": ""
+    }
   }
 
   ngOnInit() {
     this.findUser();
+    this.fecha = new Date();
   }
   findUser(){
     this.user= false;
@@ -28,5 +35,16 @@ export class ExternComponent implements OnInit {
         console.log(<any>error)
       }
     );
+  }
+  newUsers(form:any){
+    this._peticionServ.createUser(this.new_user).subscribe(
+      response=>{
+        console.log(response)
+      },
+      error=>{
+        console.log(error)
+      }
+      )
+      form.reset();
   }
 }

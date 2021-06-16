@@ -12,6 +12,9 @@ import { TemasComponent } from './temas/temas.component';
 import { HomeComponent } from './home/home.component';
 import { VideoJuegoService } from './services/videojuego.service';
 import { ExternComponent } from './extern/extern.component';
+import { CalculadoraPipe } from './pipe/calculadora.pipe';
+import { CalculadoraComponent } from './calculadora/calculadora.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { ExternComponent } from './extern/extern.component';
     ColorComponent,
     TemasComponent,
     HomeComponent,
-    ExternComponent
+    ExternComponent,
+    CalculadoraPipe,
+    CalculadoraComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,29 @@
+<hr>
+<h2>Hoy, {{fecha | date:'dd/MM/yy'}}</h2>
+<hr>
 <h2> Indica un numero de Usuario</h2>
 <input type="text" [(ngModel)]="userId" (keyup.enter)="findUser()">
 <div *ngIf="!user"><strong><i>Cargando</i></strong></div>
 <div *ngIf="user">
     <h4> El Usuario indicado es:</h4>
-    <strong>{{user.first_name}} {{user.last_name}}</strong>
+    <strong>{{user.first_name | uppercase}} {{user.last_name | uppercase}}</strong>
     <br>
     <img src="{{user.avatar}}"/>
 </div>
+<hr>
+<h1>Crear un Usuario</h1>
+<form #formNewUser="ngForm" (ngSubmit)="newUsers(formNewUser)">
+    <label for="name">Nombre</label>
+    <br>
+    <input type="text" name="name" #name="ngModel" [(ngModel)]="new_user.name" required pattern="[a-zA-Z]+">
+    <br>
+    <span *ngIf="name.touched && !name.valid">El nombre es obligatorio</span>
+    <br>
+    <label for="job">Trabajo</label>
+    <br>
+    <input type="text" name="job" #job="ngModel" [(ngModel)]="new_user.job" required pattern="[a-zA-Z]+">
+    <br>
+    <span *ngIf="job.touched && !job.valid">El trabajo es obligatorio</span>
+    <br>
+    <input type="submit" value="Guardar Usuario" [disabled]="!formNewUser.form.valid">
+</form>
