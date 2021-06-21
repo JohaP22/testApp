@@ -1,3 +1,6 @@
 <h1>Efectúa cualquier operacion con el número 2</h1>
+<hr>
+Sección de calculadora, trabajando con Pipes Personalizados
+<hr>
 <input type="text" [(ngModel)]="numero" (keyup.enter)="calculate(numero)">
 <p *ngIf="numero">{{numero | calculadora: 2}}</p>

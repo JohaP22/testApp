@@ -1,4 +1,7 @@
 <h2>{{title}}</h2>
+<hr>
+Sección de Directivas y Hooks
+<hr>
 <ul>
     <li [ngClass]="{bold: game.price > 2, underline:game.price<=2}" [class.altoPrecio]="game.price > 4" *ngFor="let game of lista_videos">{{game.name}} - {{game.price}} $ - {{game.indice}}
         <span *ngIf="game.price <= 2" [style.background]="game.price <= 2 ?'green':'transparent'"

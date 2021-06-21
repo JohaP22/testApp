@@ -1,6 +1,8 @@
 <hr>
 <h2>Hoy, {{fecha | date:'dd/MM/yy'}}</h2>
 <hr>
+Sección de consulta y registro en una API REST externa, uso de Pipes, Formularios, Servicios Http y Suscribe
+<hr>
 <h2> Indica un numero de Usuario</h2>
 <input type="text" [(ngModel)]="userId" (keyup.enter)="findUser()">
 <div *ngIf="!user"><strong><i>Cargando</i></strong></div>
